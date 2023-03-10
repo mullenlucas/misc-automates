@@ -44,9 +44,7 @@ class App
       print "\nEnter Option [number]: ".colorize(color: :white).bold
       user_response = gets.chomp
       puts "\n"
-      # Extract the text portion of the selected option
-      selected_option = OPTS.find { |opt| opt.start_with?("[#{user_response}]") }
-      selected_option = selected_option.split('=>').last.strip if selected_option
+
       interpret_resp(user_response)
 
       unless valid_selection?(user_response)
@@ -55,7 +53,7 @@ class App
       end
 
       content = Readmer.create_header(project_name, project_desc)
-      content += Readmer.create_tech(selected_option, @opxx)
+      content += Readmer.create_tech(@tech_opt, @opxx)
       content += Readmer.create_setup(project_link, @opxx)
       content += Readmer.create_footer
       write_file(content)
@@ -71,12 +69,16 @@ class App
     case response
     when '1'
       @opxx = '1'
+      @tech_opt = 'React'
     when '2'
       @opxx = '2'
+      @tech_opt = 'NextJS'
     when '3'
       @opxx = '3'
+      @tech_opt = 'Ruby on Rails'
     when '4'
       @opxx = '4'
+      @tech_opt = 'Python'
     end
   end
 

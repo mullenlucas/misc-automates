@@ -2,7 +2,7 @@
 
 <div align='center'>
   <br/>
-  <h3><b>Stea</b></h3>
+  <h3><b>Sjdas</b></h3>
 </div>
 # 📗 Table of Contents
 
@@ -23,13 +23,13 @@
 - [❓ FAQ](#faq)
 - [📝 License](#license)
 
-# 📖 Stea <a name="about-project"></a>
-> fdjsfds
+# 📖 Sjdas <a name="about-project"></a>
+> vcjxivjcxob
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
 
-> This Web App was built with Exit, using Gitflow and customized Linters
+> This Web App was built with NextJS, using Gitflow and customized Linters
 <details>
   <summary>Client</summary>
   <ul>
