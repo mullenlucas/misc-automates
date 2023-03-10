@@ -71,4 +71,65 @@ class Readmer
 
     tech_template
   end
+
+  def self.create_setup(clone_link, opx)
+    link_basename = File.basename(clone_link, ".git")
+    repo_name = link_basename[link_basename.rindex('/')+1..-1] # extract the portion after the last '/'
+    inter_setup = <<~INTERSETUP
+      ### Clone the repository
+      
+      ```shell
+      git clone #{clone_link}
+      cd #{repo_name}
+      ```
+    INTERSETUP
+    case opx
+    when '1'
+      ## 💻 Getting Started <a name="getting-started"></a>
+
+      This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+    end
+  end
+
+  def self.create_footer()
+    footer = <<~FOOTER
+      ## 👥 Authors <a name="authors"></a>
+      
+      👤 **Lucas Mullen**
+      
+      - GitHub: [@mullenlucas](https://github.com/mullenlucas)
+      - LinkedIn: [LinkedIn](https://www.linkedin.com/in/lucas-mullen-447312119/)
+      
+      <p align="right">(<a href="#readme-top">back to top</a>)</p>
+      
+      ## 🤝 Contributing <a name="contributing"></a>
+      
+      Contributions, issues, and feature requests are welcome!
+      
+      Feel free to check the [issues page](../../issues/).
+      
+      <p align="right">(<a href="#readme-top">back to top</a>)</p>
+      
+      ## ⭐️ Show your support <a name="support"></a>
+      
+      Give a ⭐️ if you like this project!
+      
+      <p align="right">(<a href="#readme-top">back to top</a>)</p>
+      
+      ## 🙏 Acknowledgments <a name="acknowledgements"></a>
+      
+      - Hat tip to anyone whose code was used
+      - Inspiration
+
+      <p align="right">(<a href="#readme-top">back to top</a>)</p>
+      
+      ## 📝 License <a name="license"></a>
+      
+      This project is [MIT](./LICENSE.md) licensed.
+      
+      <p align="right">(<a href="#readme-top">back to top</a>)</p>
+    FOOTER
+
+    footer
+  end
 end
