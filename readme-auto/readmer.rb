@@ -33,6 +33,18 @@ class Readmer
     header_template
   end
 
+  def self.detailer(type, urld, title)
+    dets = <<~MINIHERA
+      <details>
+        <summary>#{type}</summary>
+        <ul>
+          <li><a href='#{urld}'>#{title}</a></li>
+        </ul>
+      </details>
+    MINIHERA
+    dets
+  end
+
   def self.create_tech(techx, opt)
     tech_template = <<~TECH_TEMPL
       ## 🛠 Built With <a name="built-with"></a>
@@ -44,32 +56,19 @@ class Readmer
 
     case opt
     when '1'
-      detailx = <<~DETS
-        <details>
-          <summary>Client</summary>
-          <ul>
-            <li><a href='https://www.ruby-lang.org/en/'>Ruby</a></li>
-          </ul>
-        </details>
-      
-        <details>
-          <summary>Server</summary>
-          <ul>
-            <li><a href="https://rubyonrails.org/">Rails</a></li>
-          </ul>
-        </details>
-      
-        <details>
-          <summary>Database</summary>
-            <ul>
-              <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
-            </ul>
-        </details>
-      DETS
-      tech_template += detailx # Modify tech_final_template within when '1' branch
+      tech_template += detailer(
+        'Client', 'https://reactjs.org/', 'React') + detailer(
+        'Server', 'https://developer.mozilla.org/en-US/docs/Web/JavaScript', 'JavaScript')
+    when '2'
+      tech_template += detailer(
+        'Client', 'https://reactjs.org/', 'React') + detailer(
+        'Server', 'https://nextjs.org/', 'NextJS')
+    when '3'
+      tech_template += detailer(
+        'Client', 'https://www.ruby-lang.org/en/', 'Ruby') + detailer(
+        'Server', 'https://rubyonrails.org/', 'Rails')
     end
-    puts tech_template
 
-    tech_template # Return tech_final_template at the end of the method
+    tech_template
   end
 end

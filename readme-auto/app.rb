@@ -65,13 +65,14 @@ class App
 
     case response
     when '1'
-      @txasx = "Ruby on railosss"
+      @txasx = "React"
       @opxx = '1'
-      puts "#{@opxx} selected"
     when '2'
-      readme_template += "\n\n SAPerito"
+      @txasx = "NextJS"
+      @opxx = '2'
     when '3'
-      readme_template += "\n\nContents"
+      @txasx = "Ruby on rails"
+      @opxx = '3'
     when '4'
       readme_template += "\n\nInitializing"
     when '5'

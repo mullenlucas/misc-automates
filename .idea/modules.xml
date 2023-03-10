@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/misc-automates.iml" filepath="$PROJECT_DIR$/.idea/misc-automates.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/readme-auto.iml" filepath="$PROJECT_DIR$/.idea/modules/readme-auto.iml" />
     </modules>
   </component>
 </project>

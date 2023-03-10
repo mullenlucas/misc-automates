@@ -2,7 +2,7 @@
 
 <div align='center'>
   <br/>
-  <h3><b>WEJD</b></h3>
+  <h3><b>cacda</b></h3>
 </div>
 # 📗 Table of Contents
 
@@ -23,30 +23,22 @@
 - [❓ FAQ](#faq)
 - [📝 License](#license)
 
-# 📖 WEJD <a name="about-project"></a>
-> WEJD
+# 📖 cacda <a name="about-project"></a>
+> cacda
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
 
-> This Web App was built with Ruby on railosss, using Gitflow and customized Linters
+> This Web App was built with Ruby on railnon, using Gitflow and customized Linters
 <details>
   <summary>Client</summary>
   <ul>
     <li><a href='https://www.ruby-lang.org/en/'>Ruby</a></li>
   </ul>
 </details>
-
 <details>
   <summary>Server</summary>
   <ul>
-    <li><a href="https://rubyonrails.org/">Rails</a></li>
+    <li><a href='https://rubyonrails.org/'>Rails</a></li>
   </ul>
-</details>
-
-<details>
-  <summary>Database</summary>
-    <ul>
-      <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
-    </ul>
 </details>
