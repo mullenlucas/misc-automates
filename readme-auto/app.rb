@@ -5,9 +5,9 @@ class App
 
   OPTS = [
     '[1]  =>  React',
-    '[2]  =>  Next.js',
-    '[3]  =>  Python',
-    '[4]  =>  Ruby on Rails (RoR)',
+    '[2]  =>  NextJS',
+    '[3]  =>  Ruby on Rails (RoR)',
+    '[4]  =>  Python',
     '[5]  =>  Frontend + Backend',
     '[0]  =>  Exit'
   ].freeze
@@ -15,20 +15,21 @@ class App
   SUB_OPTS = [
     '[1] => RoR + React',
     '[2] => Python + React',
-    '[3] => RoR + Next.js',
-    '[4] => Python + Next.js',
-    '[5] => React + Node',
-    '[6] => Next.js + Node'
+    '[3] => RoR + NextJS',
+    '[4] => Python + NextJS'
   ].freeze
 
   def run
-    puts "\n\nCreating the new README.md ...\n\n".colorize(color: :green).bold
+    puts "\nCreating the new README.md ...\n".colorize(color: :green).bold
 
-    puts "Please enter the name of your project: \n\n"
-    @project_name = gets.chomp
+    puts "Please enter the project's repository link: \n"
+    project_link = gets.chomp.to_s
+
+    puts "Please enter the name of your project: \n"
+    project_name = gets.chomp
 
     puts "Please enter the project's description: \n"
-    @project_desc = gets.chomp
+    project_desc = gets.chomp
 
     user_response = 1
     while user_response != '0'
@@ -43,6 +44,9 @@ class App
       print "\nEnter Option [number]: ".colorize(color: :white).bold
       user_response = gets.chomp
       puts "\n"
+      # Extract the text portion of the selected option
+      selected_option = OPTS.find { |opt| opt.start_with?("[#{user_response}]") }
+      selected_option = selected_option.split('=>').last.strip if selected_option
       interpret_resp(user_response)
 
       unless valid_selection?(user_response)
@@ -50,9 +54,10 @@ class App
         next
       end
 
-      # content = generate_readme_content(user_response)
-      content = Readmer.create_header(@project_name)
-      content += Readmer.create_tech(@txasx, @opxx)
+      content = Readmer.create_header(project_name, project_desc)
+      content += Readmer.create_tech(selected_option, @opxx)
+      content += Readmer.create_setup(project_link, @opxx)
+      content += Readmer.create_footer
       write_file(content)
     end
 
@@ -65,26 +70,18 @@ class App
 
     case response
     when '1'
-      @txasx = "React"
       @opxx = '1'
     when '2'
-      @txasx = "NextJS"
       @opxx = '2'
     when '3'
-      @txasx = "Ruby on rails"
       @opxx = '3'
     when '4'
-      readme_template += "\n\nInitializing"
-    when '5'
-      readme_template += "\n\nLicense\n\n"
-    when '6'
-      readme_template += "\n\nFooter\n\n"
+      @opxx = '4'
     end
-
   end
 
   def write_file(content)
-    File.open('Sape.md', 'w') do |file|
+    File.open('README.md', 'w') do |file|
       file.write(content)
     end
   end
